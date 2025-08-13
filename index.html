@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic page setup -->
+    <meta charset="UTF-8" /> <!-- Sets character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <title>SkillLink</title> <!-- Page title -->
+    <link rel="stylesheet" href="style.css" /> <!-- Link to CSS file -->
+</head>
+
+<body>
+    
+    <header>
+        <h1>SkillLink</h1> <!-- Main heading -->
+    </header>
+
+    <main>
+        <!-- Booking Section -->
+        <section id="booking-section">
+            <h2>Booking / Contact Requests</h2> <!-- Section heading -->
+
+            <!-- Booking form -->
+            <form id="bookingForm">
+                <input type="text" id="learnerName" placeholder="Your Name" required /> 
+                <input type="text" id="skillName" placeholder="Skill Name" required /> 
+                <button type="submit">Send Request</button> <!-- Submit booking request -->
+            </form>
+
+            <!-- List of booking requests will appear here -->
+            <div id="bookingList"></div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews-section">
+            <h2>Reviews & Comments</h2> <!-- Section heading -->
+
+            <!-- Review form -->
+            <form id="reviewForm">
+                <input type="text" id="reviewerName" placeholder="Your Name" required /> 
+
+                <!-- Rating dropdown -->
+                <select id="rating" required>
+                    <option value="">Rating</option>
+                    <option value="5">★★★★★</option>
+                    <option value="4">★★★★☆</option>
+                    <option value="3">★★★☆☆</option>
+                    <option value="2">★★☆☆☆</option>
+                    <option value="1">★☆☆☆☆</option>
+                </select>
+
+                <!-- Review text area -->
+                <textarea id="reviewText" placeholder="Write your review..." required></textarea>
+                <button type="submit">Submit Review</button> <!-- Submit review -->
+            </form>
+
+            <!-- List of reviews will appear here -->
+            <div id="reviewsList"></div>
+        </section>
+    </main>
+
+    <!-- Link to JavaScript file -->
+    <script src="script.js"></script>
+</body>
+
+</html>
