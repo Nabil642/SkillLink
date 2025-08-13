@@ -32,5 +32,21 @@ It connects learners with skill providers (Skill Sharers) and supports features 
 
 ---
 
-## 📂 Project Structure
+## 🧰 Local Installation
+
+Follow these steps to run SkilledLink on your machine.
+
+### 1) Prerequisites
+- **Node.js** v18+ (includes npm) — https://nodejs.org/
+- **MongoDB**
+  - Local server (Community Edition) — https://www.mongodb.com/try/download/community  
+  - **or** MongoDB Atlas connection string
+
+> Verify versions:
+```bash
+node -v
+npm -v
+
+
+
 
