@@ -32,23 +32,24 @@ It connects learners with skill providers (Skill Sharers) and supports features 
 
 ---
 
-## ▶️ Run This Project Locally (from GitHub)
-
 ### 1) Prerequisites
-- **MySql**
-  
+- **XAMPP** (Apache + MySQL) for Windows
+- **Git**
+- **PHP 8.x** (bundled with XAMPP)
+- *(Optional)* **Composer** if your PHP code uses dependencies
+
 Verify:
-```bash
-node -v
-npm -v
-```
+```bat
+php -v
+git --version
+where mysql
 
 ---
 
 ### 2) Clone the Repository
-```bash
-git clone https://github.com/<your-username>/skilledlink.git
-cd skilledlink
+git clone https://github.com/<your-username>/skilllink.git
+cd skilllink
+
 ```
 
 > Replace `<your-username>` with the actual GitHub username or org.
@@ -70,7 +71,7 @@ MONGODB_URI=mongodb://localhost:27017/skilllink
 # MONGODB_URI=mongodb+srv://<user>:<pass>@<cluster>/skilllink?retryWrites=true&w=majority
 ```
 
-Start MongoDB:
+MYSQL
 - **Local**: ensure `mongod` is running (service/app).  
   Or run it manually in another terminal:
   ```bash
