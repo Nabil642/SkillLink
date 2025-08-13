@@ -1,72 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Basic HTML meta configuration -->
-    <meta charset="UTF-8" /> <!-- Sets the character encoding -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Makes the site responsive -->
-    <title>SkillLink</title> <!-- Page title -->
-    
-    <!-- External CSS file link -->
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkillLink</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <!-- Website Header -->
-    <header>
-        <h1>SkillLink</h1> <!-- Main website title -->
-    </header>
+  <header>
+    <h1>SkillLink</h1>
+  </header>
 
-    <main>
-        <!-- ============================
-        Skill Sharer Section (Add / Manage Skills)
-        ============================= -->
-        <section id="manage-skills">
-            <h2>Add / Manage Skills</h2>
+  <main>
+    <!-- Manage -->
+    <section id="manage-skills">
+      <h2>Add / Manage Skills</h2>
 
-            <!-- Form for adding a new skill -->
-            <form id="skillForm">
-                <!-- Input fields for skill details -->
-                <input type="text" id="title" placeholder="Skill Title" required />
-                <textarea id="description" placeholder="Description" required></textarea>
-                <input type="text" id="category" placeholder="Category" required />
-                <input type="number" id="price" placeholder="Price" required />
-                <input type="url" id="photo" placeholder="Photo URL" required />
-                
-                <!-- Submit button -->
-                <button type="submit">Add Skill</button>
-            </form>
+      <form id="skillForm">
+        <input type="text" id="title" placeholder="Skill Title" required />
+        <textarea id="description" placeholder="Description" required></textarea>
+        <input type="text" id="category" placeholder="Category" required />
+        <input type="number" id="price" placeholder="Price" required />
+        <input type="url" id="photo" placeholder="Photo URL" required />
+        <button type="submit">Add Skill</button>
+      </form>
 
-            <!-- This div will display the list of skills dynamically -->
-            <div id="skillList"></div>
-        </section>
+      <div id="skillList"></div>
+    </section>
 
-        <!-- ============================
-        Learner Section (Search & Browse Skills)
-        ============================= -->
-        <section id="browse-skills">
-            <h2>Search & Browse Skills</h2>
+    <!-- Browse -->
+    <section id="browse-skills">
+      <h2>Search & Browse Skills</h2>
+      <input type="text" id="searchInput" placeholder="Search by keyword..." />
+      <select id="filterCategory">
+        <option value="">All Categories</option>
+      </select>
+      <select id="sortOptions">
+        <option value="">Sort By</option>
+        <option value="priceLow">Price: Low to High</option>
+        <option value="priceHigh">Price: High to Low</option>
+        <option value="ratingHigh">Rating: High to Low</option>
+      </select>
 
-            <!-- Search input for keyword filtering -->
-            <input type="text" id="searchInput" placeholder="Search by keyword..." />
+      <div id="browseList"></div>
+    </section>
+  </main>
 
-            <!-- Dropdown for filtering by category -->
-            <select id="filterCategory">
-                <option value="">All Categories</option>
-            </select>
-
-            <!-- Dropdown for sorting options -->
-            <select id="sortOptions">
-                <option value="">Sort By</option>
-                <option value="priceLow">Price: Low to High</option>
-                <option value="priceHigh">Price: High to Low</option>
-                <option value="ratingHigh">Rating: High to Low</option>
-            </select>
-
-            <!-- This div will display the browsable skills dynamically -->
-            <div id="browseList"></div>
-        </section>
-    </main>
-
-    <!-- External JavaScript file for functionality -->
-    <script src="script.js"></script>
+  <!-- Keep script at the very end so DOM exists -->
+  <script src="script.js"></script>
 </body>
 </html>
