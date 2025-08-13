@@ -27,7 +27,7 @@ It connects learners with skill providers (Skill Sharers) and supports features 
 
 **Backend**
 - Node.js + Express.js
-- MongoDB + Mongoose (Atlas or local)
+- php 
 - CORS, Morgan for logging
 
 ---
@@ -35,11 +35,8 @@ It connects learners with skill providers (Skill Sharers) and supports features 
 ## ▶️ Run This Project Locally (from GitHub)
 
 ### 1) Prerequisites
-- **Node.js** v18+ (includes npm): https://nodejs.org/
-- **MongoDB** (local or Atlas connection string)
-  - Local Community Server: https://www.mongodb.com/try/download/community
-  - Or use MongoDB Atlas (cloud)
-
+- **MySql**
+  
 Verify:
 ```bash
 node -v
