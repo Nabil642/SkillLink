@@ -1,40 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta configuration for encoding and responsive design -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <!-- Page title in browser tab -->
   <title>SkillLink</title>
+
+  <!-- Linking external CSS file for styling -->
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+  
+  <!--
+       Website Header Section
+ -->
   <header>
+    <!-- Main title for the site -->
     <h1>SkillLink</h1>
   </header>
 
+  <!-- 
+       Main Content Area
+   -->
   <main>
-    <!-- Manage -->
+    
+    <!--
+         Manage Skills Section (Add/Edit/Delete)
+    -->
     <section id="manage-skills">
       <h2>Add / Manage Skills</h2>
 
+      <!-- Form for adding a new skill -->
       <form id="skillForm">
+        <!-- Input for skill title -->
         <input type="text" id="title" placeholder="Skill Title" required />
+        
+        <!-- Textarea for skill description -->
         <textarea id="description" placeholder="Description" required></textarea>
+        
+        <!-- Input for category -->
         <input type="text" id="category" placeholder="Category" required />
+        
+        <!-- Input for price -->
         <input type="number" id="price" placeholder="Price" required />
+        
+        <!-- Input for photo URL -->
         <input type="url" id="photo" placeholder="Photo URL" required />
+        
+        <!-- Submit button to add skill -->
         <button type="submit">Add Skill</button>
       </form>
 
+      <!-- Container where added skills will be displayed for management -->
       <div id="skillList"></div>
     </section>
 
-    <!-- Browse -->
+    <!--
+         Browse Skills Section (Search/Filter/Sort)
+     -->
     <section id="browse-skills">
       <h2>Search & Browse Skills</h2>
+
+      <!-- Search bar for keyword-based filtering -->
       <input type="text" id="searchInput" placeholder="Search by keyword..." />
+      
+      <!-- Dropdown for filtering by category -->
       <select id="filterCategory">
         <option value="">All Categories</option>
       </select>
+      
+      <!-- Dropdown for sorting skills -->
       <select id="sortOptions">
         <option value="">Sort By</option>
         <option value="priceLow">Price: Low to High</option>
@@ -42,11 +79,12 @@
         <option value="ratingHigh">Rating: High to Low</option>
       </select>
 
+      <!-- Container where filtered/sorted skills will be displayed for browsing -->
       <div id="browseList"></div>
     </section>
   </main>
 
-  <!-- Keep script at the very end so DOM exists -->
+  <!-- Link to external JavaScript file (kept at the bottom so DOM loads first) -->
   <script src="script.js"></script>
 </body>
 </html>
