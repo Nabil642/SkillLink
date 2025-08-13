@@ -1,33 +1,37 @@
-"use strict";
+"use strict"; // Enforces stricter JavaScript rules (prevents some common mistakes)
 
-// Quick check to confirm script loaded
+// Quick console message to confirm the script has loaded successfully
 console.log("script.js loaded ✅");
 
-// DOM references
-const skillForm = document.getElementById("skillForm");
-const skillList = document.getElementById("skillList");
-const browseList = document.getElementById("browseList");
+// 
+// DOM ELEMENT REFERENCES
+// 
+const skillForm = document.getElementById("skillForm"); // The "Add Skill" form
+const skillList = document.getElementById("skillList"); // Skills management area
+const browseList = document.getElementById("browseList"); // Skills browsing area
 
-const searchInput = document.getElementById("searchInput");
-const filterCategory = document.getElementById("filterCategory");
-const sortOptions = document.getElementById("sortOptions");
+const searchInput = document.getElementById("searchInput"); // Search bar
+const filterCategory = document.getElementById("filterCategory"); // Category filter dropdown
+const sortOptions = document.getElementById("sortOptions"); // Sorting dropdown
 
-// In-memory skills
+// Array to store all skills in memory
 let skills = [];
 
-/* ========= Seed demo data so buttons appear immediately ========= */
+// 
+// SEED DEMO DATA (so Edit/Delete buttons appear on load)
+// 
 document.addEventListener("DOMContentLoaded", () => {
-  // Only seed if empty
+  // Only add sample data if the skills list is empty
   if (skills.length === 0) {
     skills = [
       {
-        id: Date.now(),
+        id: Date.now(), // Unique ID based on timestamp
         title: "Web Design Basics",
         description: "Learn HTML/CSS fundamentals.",
         category: "Design",
         price: 50,
-        photo: "https://picsum.photos/seed/design/600/300",
-        rating: "4.7"
+        photo: "https://picsum.photos/seed/design/600/300", // Sample image
+        rating: "4.7" // Hardcoded rating
       },
       {
         id: Date.now() + 1,
@@ -39,15 +43,18 @@ document.addEventListener("DOMContentLoaded", () => {
         rating: "4.9"
       }
     ];
-    updateCategoryFilter();
-    renderSkills();
+    updateCategoryFilter(); // Populate category dropdown
+    renderSkills(); // Display the seeded skills
   }
 });
 
-/* ================== Add Skill ================== */
+// 
+// ADD NEW SKILL (Form Submit Event)
+// 
 skillForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+  event.preventDefault(); // Prevents page reload when form is submitted
 
+  // Create a new skill object from form inputs
   const skill = {
     id: Date.now(),
     title: document.getElementById("title").value.trim(),
@@ -55,23 +62,28 @@ skillForm.addEventListener("submit", (event) => {
     category: document.getElementById("category").value.trim(),
     price: parseFloat(document.getElementById("price").value),
     photo: document.getElementById("photo").value.trim(),
-    rating: (Math.random() * 2 + 3).toFixed(1) // 3.0–5.0
+    rating: (Math.random() * 2 + 3).toFixed(1) // Random rating between 3.0–5.0
   };
 
+  // Add skill to the skills array
   skills.push(skill);
-  updateCategoryFilter();
-  renderSkills();
-  skillForm.reset();
+
+  updateCategoryFilter(); // Refresh category filter options
+  renderSkills(); // Display updated skills list
+  skillForm.reset(); // Clear form fields after adding
 });
 
-/* ================== Render Skills ================== */
+// 
+// RENDER SKILLS (Display both Manage & Browse sections)
+// 
 function renderSkills() {
-  // Clear containers
+  // Clear existing displayed skills
   skillList.innerHTML = "";
   browseList.innerHTML = "";
 
-  // Render manage list (with Edit/Delete)
+  // Loop through skills and create HTML cards
   skills.forEach((skill) => {
+    // Create skill card for Manage section (with Edit/Delete buttons)
     const card = document.createElement("div");
     card.className = "skill-card";
     card.innerHTML = `
@@ -88,53 +100,65 @@ function renderSkills() {
     `;
     skillList.appendChild(card);
 
-    // Clone for browse (no action buttons)
+    // Create a copy for Browse section (no Edit/Delete buttons)
     const browseCard = card.cloneNode(true);
     const actions = browseCard.querySelector(".action-buttons");
-    if (actions) actions.remove();
+    if (actions) actions.remove(); // Remove action buttons for browsing
     browseList.appendChild(browseCard);
   });
 }
 
-/* ===== Edit/Delete Handlers (Event Delegation) ===== */
+// 
+// EDIT & DELETE HANDLERS (Event Delegation on skillList)
+// 
 skillList.addEventListener("click", (e) => {
-  const editBtn = e.target.closest(".edit-btn");
-  const deleteBtn = e.target.closest(".delete-btn");
+  const editBtn = e.target.closest(".edit-btn"); // Checks if Edit button clicked
+  const deleteBtn = e.target.closest(".delete-btn"); // Checks if Delete button clicked
 
   if (editBtn) {
-    const id = Number(editBtn.dataset.id);
-    editSkill(id);
+    const id = Number(editBtn.dataset.id); // Get skill ID
+    editSkill(id); // Call edit function
   } else if (deleteBtn) {
     const id = Number(deleteBtn.dataset.id);
-    deleteSkill(id);
+    deleteSkill(id); // Call delete function
   }
 });
 
+// 
+// EDIT SKILL (Prefill form with existing data)
+// 
 function editSkill(id) {
-  const skill = skills.find((s) => s.id === id);
+  const skill = skills.find((s) => s.id === id); // Find skill by ID
   if (!skill) return;
 
-  // Prefill form
+  // Fill form fields with the skill's data
   document.getElementById("title").value = skill.title;
   document.getElementById("description").value = skill.description;
   document.getElementById("category").value = skill.category;
   document.getElementById("price").value = skill.price;
   document.getElementById("photo").value = skill.photo;
 
-  // Remove original; on submit it will be re-added as updated
+  // Remove the original skill so it can be replaced on resubmit
   skills = skills.filter((s) => s.id !== id);
   renderSkills();
 }
 
+//
+// DELETE SKILL (Remove skill by ID)
+// 
 function deleteSkill(id) {
-  skills = skills.filter((s) => s.id !== id);
-  renderSkills();
+  skills = skills.filter((s) => s.id !== id); // Keep all except the one to delete
+  renderSkills(); // Refresh the UI
 }
 
-/* ============ Category Filter Options ============ */
+// 
+// UPDATE CATEGORY FILTER OPTIONS
+// 
 function updateCategoryFilter() {
-  const categories = [...new Set(skills.map((s) => s.category))];
-  filterCategory.innerHTML = `<option value="">All Categories</option>`;
+  const categories = [...new Set(skills.map((s) => s.category))]; // Unique category list
+  filterCategory.innerHTML = `<option value="">All Categories</option>`; // Default option
+
+  // Add each unique category to the dropdown
   categories.forEach((cat) => {
     const option = document.createElement("option");
     option.value = cat;
@@ -143,15 +167,17 @@ function updateCategoryFilter() {
   });
 }
 
-/* ============ Search / Filter / Sort ============ */
+// 
+// SEARCH / FILTER / SORT FUNCTIONALITY
+// 
 [searchInput, filterCategory, sortOptions].forEach((el) => {
-  el.addEventListener("input", applyFilters);
+  el.addEventListener("input", applyFilters); // Run filters whenever input changes
 });
 
 function applyFilters() {
-  let filtered = [...skills];
+  let filtered = [...skills]; // Start with all skills
 
-  // Search
+  // Filter by keyword search
   const keyword = searchInput.value.toLowerCase();
   if (keyword) {
     filtered = filtered.filter(
@@ -161,12 +187,12 @@ function applyFilters() {
     );
   }
 
-  // Category
+  // Filter by category
   if (filterCategory.value) {
     filtered = filtered.filter((s) => s.category === filterCategory.value);
   }
 
-  // Sort
+  // Sort by selected option
   if (sortOptions.value === "priceLow") {
     filtered.sort((a, b) => a.price - b.price);
   } else if (sortOptions.value === "priceHigh") {
@@ -175,7 +201,7 @@ function applyFilters() {
     filtered.sort((a, b) => b.rating - a.rating);
   }
 
-  // Render filtered in Browse section
+  // Display filtered results in Browse section
   browseList.innerHTML = "";
   filtered.forEach((skill) => {
     const card = document.createElement("div");
