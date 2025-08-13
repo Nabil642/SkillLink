@@ -1,82 +1,78 @@
-/* 
-   GLOBAL PAGE STYLING
- */
+/* Global */
 body {
-    font-family: Arial, sans-serif; /* Simple, clean font */
-    margin: 0; /* Remove default browser margin */
-    background: #f9f9f9; /* Light grey background for a soft look */
-    color: #333; /* Dark grey text for better readability */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+  color: #333;
 }
 
-/* 
-   HEADER STYLING
- */
+/* Header */
 header {
-    background: #4cafef; /* Light blue background for branding */
-    color: white; /* White text for contrast */
-    text-align: center; /* Centered header text */
-    padding: 1rem; /* Spacing around the header text */
+  background: #4cafef;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
 }
 
-/* 
-   MAIN CONTENT AREA
- */
+/* Layout */
 main {
-    padding: 1rem; /* Space around the content */
-    display: grid; /* Grid layout for sections */
-    gap: 2rem; /* Space between sections */
+  padding: 1rem;
+  display: grid;
+  gap: 2rem;
 }
 
-/* 
-   SECTION CONTAINERS
- */
 section {
-    background: white; /* White background for content boxes */
-    padding: 1rem; /* Internal spacing */
-    border-radius: 8px; /* Rounded corners */
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
 }
 
-/* 
-   FORMS (Add / Search Skills)
- */
+/* Form */
 form {
-    display: flex; /* Vertical stacking of inputs */
-    flex-direction: column;
-    gap: 0.5rem; /* Space between inputs */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 input, textarea, select, button {
-    padding: 0.5rem; /* Comfortable click/tap size */
-    border-radius: 5px; /* Rounded input corners */
-    border: 1px solid #ccc; /* Light border */
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
-/*
-   BUTTONS
- */
+/* Buttons */
 button {
-    background: #4cafef; /* Blue background */
-    color: white; /* White text */
-    cursor: pointer; /* Pointer cursor on hover */
-    border: none; /* Remove default border */
+  background: #4cafef;
+  color: #fff;
+  cursor: pointer;
+  border: none;
 }
-
 button:hover {
-    background: #3b9dd4; /* Darker blue on hover */
+  background: #3b9dd4;
 }
 
-/* 
-   SKILL CARDS (For Manage & Browse)
-*/
+/* Cards */
 .skill-card {
-    border: 1px solid #ddd; /* Light grey border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 0.75rem; /* Space inside card */
-    margin-top: 0.5rem; /* Space above each card */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .skill-card img {
-    max-width: 100%; /* Responsive images */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 5px; /* Rounded image corners */
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Action buttons on cards */
+.action-buttons {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-buttons button {
+  flex: 1;
+  padding: 0.4rem;
 }
