@@ -1,0 +1,82 @@
+/* 
+   GLOBAL PAGE STYLING
+ */
+body {
+    font-family: Arial, sans-serif; /* Simple, clean font */
+    margin: 0; /* Remove default browser margin */
+    background: #f9f9f9; /* Light grey background for a soft look */
+    color: #333; /* Dark grey text for better readability */
+}
+
+/* 
+   HEADER STYLING
+ */
+header {
+    background: #4cafef; /* Light blue background for branding */
+    color: white; /* White text for contrast */
+    text-align: center; /* Centered header text */
+    padding: 1rem; /* Spacing around the header text */
+}
+
+/* 
+   MAIN CONTENT AREA
+ */
+main {
+    padding: 1rem; /* Space around the content */
+    display: grid; /* Grid layout for sections */
+    gap: 2rem; /* Space between sections */
+}
+
+/* 
+   SECTION CONTAINERS
+ */
+section {
+    background: white; /* White background for content boxes */
+    padding: 1rem; /* Internal spacing */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* 
+   FORMS (Add / Search Skills)
+ */
+form {
+    display: flex; /* Vertical stacking of inputs */
+    flex-direction: column;
+    gap: 0.5rem; /* Space between inputs */
+}
+
+input, textarea, select, button {
+    padding: 0.5rem; /* Comfortable click/tap size */
+    border-radius: 5px; /* Rounded input corners */
+    border: 1px solid #ccc; /* Light border */
+}
+
+/*
+   BUTTONS
+ */
+button {
+    background: #4cafef; /* Blue background */
+    color: white; /* White text */
+    cursor: pointer; /* Pointer cursor on hover */
+    border: none; /* Remove default border */
+}
+
+button:hover {
+    background: #3b9dd4; /* Darker blue on hover */
+}
+
+/* 
+   SKILL CARDS (For Manage & Browse)
+*/
+.skill-card {
+    border: 1px solid #ddd; /* Light grey border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 0.75rem; /* Space inside card */
+    margin-top: 0.5rem; /* Space above each card */
+}
+
+.skill-card img {
+    max-width: 100%; /* Responsive images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded image corners */
+}
